@@ -13,7 +13,7 @@ import pytesseract
 
 app = FastAPI()
 
-app.mount("/static", StaticFiles(directory="src/static"), name="static")
+# app.mount("/static", StaticFiles(directory="src/static"), name="static")
 templates = Jinja2Templates(directory="src/templates")
 
 
