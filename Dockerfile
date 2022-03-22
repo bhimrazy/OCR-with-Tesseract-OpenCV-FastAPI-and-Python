@@ -17,5 +17,5 @@ RUN pip install opencv-contrib-python jinja2
 
 COPY ./src /app/src
 
-EXPOSE $PORT 
+EXPOSE 80
 CMD ["uvicorn", "src.main:app", "--host", "0.0.0.0"]
