@@ -1,4 +1,5 @@
-FROM python:3.9-slim
+# FROM python:3.9-slim
+FROM tiangolo/uvicorn-gunicorn-fastapi:python3.9-slim
 
 RUN apt-get update -y
 # RUN apt-get install -y python3-pip python-dev build-essential
@@ -10,12 +11,12 @@ WORKDIR /app
 COPY ./requirements.txt /app/requirements.txt
 
 RUN pip install --no-cache-dir --upgrade -r /app/requirements.txt
-RUN pip install pillow
-RUN pip install pytesseract
-RUN pip install python-multipart
-RUN pip install opencv-contrib-python jinja2
+# RUN pip install pillow
+# RUN pip install pytesseract
+# RUN pip install python-multipart
+# RUN pip install opencv-contrib-python jinja2
 
-COPY ./src /app/src
+COPY ./app /app
 
-EXPOSE 8000
-CMD ["uvicorn", "src.main:app", "--host", "0.0.0.0", "--port ${PORT:-8000}"]
+# EXPOSE 8000
+# CMD ["uvicorn", "app.main:app", "--host", "0.0.0.0", "--port","${PORT}"]
